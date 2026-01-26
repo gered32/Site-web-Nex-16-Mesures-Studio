@@ -1,5 +1,5 @@
 // Variables
-$primary: #1a1a1a;
+$primary: #343232;
 $secondary: #f4f4f4;
 $accent: #d4af37;
 
@@ -18,7 +18,7 @@ body {
 .nav-account {
   justify-self: end;
   display: inline-flex;
-  align-items: center;
+  align-items: right;
 }
 
 .nav-account img {
@@ -55,7 +55,7 @@ body {
 }
 
 // Navigation
-.main-nav {
+.navigation {
     background: $primary;
     padding: 10px;
 
@@ -143,7 +143,6 @@ body {
     .footer-copy { flex: 1; text-align: center; }
     .footer-links a { margin-left: 15px; text-decoration: none; color: $primary; }
 }
-
 
 
 

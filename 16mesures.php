@@ -11,13 +11,11 @@
     <header class="main-header">
         <div class="logo-container">
             <a href="index.html" title="Ceci est un lien image HTML">
-	<img alt="Logo 16 Mesures Records" src="./img/16mesures_logo.png" width="400" height="75" /> </a>
+	<img alt="Logo 16 Mesures Records" src="./img/16mesures_logo.png" width="200"/> </a>
         </div>
-        <a href="authentification.php" class="nav-account" aria-label="Compte">
-                <img src="./img/profilutilisateuranon.png" alt="Compte utilisateur" /></a>
-    </header>
 
-    <nav class="main-nav">
+
+<nav class="navigation">
         <div class="burger-menu">
             <span></span>
             <span></span>
@@ -30,11 +28,25 @@
         </ul>
     </nav>
 
+
+
+        <a href="authentification.php" class="nav-account" aria-label="Compte">
+                <img src="./img/profilutilisateuranon.png" alt="Compte utilisateur" /></a>
+    </header>
+
+    
+
     <div class="breadcrumb">
         <div class="container">
-            <a href="index.php">Accueil</a> > <span>16 Mesures Records</span>
+            <a href="index.html">Accueil</a> > <span>16 Mesures Records</span>
         </div>
     </div>
+
+
+
+
+
+
 
     <main>
         <section class="studio-carousel">
