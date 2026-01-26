@@ -10,10 +10,11 @@
 
     <header class="main-header">
         <div class="logo-container">
-            <img src="./img/16mesures_logo.png" alt="Logo 16 Mesures" class="logo-float">
+            <a href="index.html" title="Ceci est un lien image HTML">
+	<img alt="Logo 16 Mesures Records" src="./img/16mesures_logo.png" width="400" height="75" /> </a>
         </div>
         <a href="authentification.php" class="nav-account" aria-label="Compte">
-                <img src="./images/profilutilisateuranon.png" alt="Compte utilisateur" /></a>
+                <img src="./img/profilutilisateuranon.png" alt="Compte utilisateur" /></a>
     </header>
 
     <nav class="main-nav">
