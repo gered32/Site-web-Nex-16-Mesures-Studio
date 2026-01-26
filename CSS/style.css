@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* styles.scss */
 * {
   box-sizing: border-box;
@@ -31,33 +32,36 @@ body {
 
 .panel {
   display: flex;
-  align-items: flex-end;
-  padding: 24px;
+  justify-content: center; /* horizontal OK */
+  align-items: flex-start; /* ⬅️ PLUS center */
+  padding-top: clamp(10px, 70vh, 400px);
+  padding-inline: clamp(16px, 4vw, 32px);
 }
 
 .studio {
-  background: linear-gradient(135deg, #ff4d2e, #ffb000);
+  background-image: url("/Site-web-Nex-16-Mesures-Studio/images/homepage16mrimagefond.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .nex {
-  background: linear-gradient(135deg, #2f6bff, #24d1ff);
+  background-image: url("/Site-web-Nex-16-Mesures-Studio/images/logo nex fond home page.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .content {
-  background: rgba(0, 0, 0, 0.35);
-  padding: 16px;
+  background: rgba(0, 0, 0, 0.8);
+  /* bordure: évite 0.64em (trop gros sur petite largeur) */
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  padding: clamp(10px, 3vw, 10px);
   border-radius: 12px;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 8em;
-}
-.content h2 {
-  margin: 0 0 6px;
-}
-.content p {
-  margin: 0 0 12px;
-  opacity: 0.9;
+  /* responsive: largeur fluide */
+  width: min(520px, 92%);
+  margin: 0; /* plus besoin de auto ici si panel centre */
+  text-align: center;
 }
 
 .actions {
@@ -96,5 +100,11 @@ body {
 @media (max-width: 900px) {
   .split {
     grid-template-columns: 1fr;
+  }
+  .studio {
+    background-position: 30% center;
+  }
+  .nex {
+    background-position: 70% center;
   }
 }/*# sourceMappingURL=style.css.map */
