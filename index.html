@@ -5,48 +5,65 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hub — 16 Mesures Studio / NEX</title>
+  <!-- Le navigateur lit le CSS compilé -->
   <link rel="stylesheet" href="./CSS/style.css" />
 </head>
 <body>
 
-<header class="top">
-  <h1>Choisis ton univers</h1>
-  <p>Deux projets, deux ambiances.</p>
+  <!-- HEADER -->
+  <header class="top">
+    <!--  Barre haute : centre parfait du h1 + icône à droite -->
+    <div class="top-bar">
+      <!-- Colonne gauche vide pour garder le titre vraiment centré -->
+      <div class="top-spacer" aria-hidden="true"></div>
 
-  <!-- autres éléments de nav -->
+      <h1 id="top-title">Choisis ton univers</h1>
 
-  <a href="/login.html" class="nav-account" aria-label="Se connecter">
-    <img
-      src="images/user-icon.png"
-      alt="Compte utilisateur"
-    />
-  </a>
-
-</header>
-
-<main class="split">
-  <!-- 16 Mesures -->
-  <section class="panel studio">
-    <div class="content">
-      <p>Studio d’enregistrement hip-hop à taille humaine.</p>
-      <div class="actions">
-        <a class="btn-homepage" href="/16-mesures/">Accéder</a>
-        <a class="btn--ghost-homepage" href="/16-mesures/reserver/">Réserver</a>
-      </div>
+      <!--  Compte à droite -->
+      <a href="/login.html" class="nav-account" aria-label="Se connecter / Créer un compte">
+        <img src="./images/user-icon.png" alt="Compte utilisateur" />
+      </a>
     </div>
-  </section>
 
-  <!-- NEX -->
-  <section class="panel nex">
-    <div class="content">
-      <p>Réparation & location gaming / informatique.</p>
-      <div class="actions">
-        <a class="btn-homepage" href="/nex/">Accéder</a>
-        <a class="btn--ghost-homepage" href="/nex/devis/">Reserver</a>
+    <p id="top-subtitle">Deux projets, deux ambiances.</p>
+  </header>
+
+  <!-- MAIN -->
+  <main class="split">
+
+    <!-- 16 Mesures -->
+    <section class="panel studio" id="studio">
+      <!--  Image en HTML (plein panneau) -->
+      <img class="panel-bg" src="./images/homepage16mrimagefond.png" alt="Fond 16 Mesures Studio" />
+
+      <!--  Contenu au-dessus de l'image -->
+      <div class="content">
+        <p>Studio d’enregistrement hip-hop à taille humaine.</p>
+
+        <div class="actions">
+          <a class="btn-homepage" href="/16-mesures/">Accéder</a>
+          <a class="btn--ghost-homepage" href="/16-mesures/reserver/">Réserver</a>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+
+    <!-- NEX -->
+    <section class="panel nex" id="nex">
+      <!--  Image en HTML (plein panneau) -->
+      <img class="panel-bg" src="./images/logo nex fond home page.png" alt="Fond NEX" />
+
+      <!--  Contenu au-dessus de l'image -->
+      <div class="content">
+        <p>Réparation & location gaming / informatique.</p>
+
+        <div class="actions">
+          <a class="btn-homepage" href="/nex/">Accéder</a>
+          <a class="btn--ghost-homepage" href="/nex/devis/">Réserver</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
