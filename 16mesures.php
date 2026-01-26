@@ -71,15 +71,15 @@
             <div class="testimonials-grid">
                 <div class="card">
                     <p>"Une qualité de son incroyable et une équipe vraiment à l'écoute de mon projet."</p>
-                    <span>- Marc A.</span>
+                    <span>- Néo Morisset.</span>
                 </div>
                 <div class="card">
                     <p>"Le meilleur studio de Chambéry pour le mixage de voix. Je recommande à 100%."</p>
-                    <span>- Sarah K.</span>
+                    <span>- Alexandre Lemalicieux.</span>
                 </div>
                 <div class="card">
                     <p>"Ambiance super pro, on se sent tout de suite à l'aise pour enregistrer."</p>
-                    <span>- Jey Remix</span>
+                    <span>- Kanye West.</span>
                 </div>
             </div>
         </section>
