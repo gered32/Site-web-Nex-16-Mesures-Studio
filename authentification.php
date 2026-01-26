@@ -24,7 +24,8 @@ if (is_logged_in()) {
     <a href="register.php" class="btn--ghost-homepage">Créer un compte</a>
   </div>
 
-  <a class="link" href="index.html">← Retour</a>
+  <a class="link" href="#" onclick="history.back();">← Retour</a>
+ 
 </main>
 </body>
 </html>

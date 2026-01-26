@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>16 Mesures Records - Studio d'enregistrement</title>
-    <link rel="stylesheet" href="./CSS/16mesures.css">
+    <link rel="stylesheet" href="./css/16mesures.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="logo-container">
-            <img src="img/logo.png" alt="Logo 16 Mesures" class="logo-float">
-        </div>
-        <div class="title-container">
-            <h1>16 Mesures Records</h1>
-        </div>
-        <div class="cart-container">
-            <a href="panier.php">Panier 🛒</a>
+            <img src="./img/16mesures_logo.png" alt="Logo 16 Mesures" class="logo-float">
         </div>
         <a href="authentification.php" class="nav-account" aria-label="Compte">
                 <img src="./images/profilutilisateuranon.png" alt="Compte utilisateur" /></a>

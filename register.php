@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inscription</title>
-  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 <main class="auth-container">
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </form>
 
   <p class="muted">Déjà un compte ? <a class="link" href="login.php">Se connecter</a></p>
-  <a class="link" href="authentification.php">← Retour</a>
+  <a class="link" href="index.html">← Retour Home</a>
 </main>
 </body>
 </html>
