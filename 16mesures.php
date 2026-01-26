@@ -18,6 +18,8 @@
         <div class="cart-container">
             <a href="panier.php">Panier 🛒</a>
         </div>
+        <a href="authentification.php" class="nav-account" aria-label="Compte">
+                <img src="./images/profilutilisateuranon.png" alt="Compte utilisateur" /></a>
     </header>
 
     <nav class="main-nav">
