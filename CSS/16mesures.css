@@ -6,74 +6,66 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif; /* Police un peu plus moderne */
   background-color: #fff;
+  color: #333;
 }
 
-.nav-account {
-  justify-self: end;
-  display: inline-flex;
-  align-items: right;
-}
-
-.nav-account img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.nav-account img:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
+/* --- Header & Navigation --- */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 15px 40px;
+  height: 120em;
   background: #f4f4f4;
-}
-.main-header .logo-float {
-  height: 600px;
-  float: left;
-}
-.main-header .title-container h1 {
-  text-align: center;
-  flex: 1;
-}
-.main-header .cart-container a {
-  text-decoration: none;
-  color: #343232;
-  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.navigation {
-  background: #343232;
-  padding: 10px;
+.logo-container {
+  height: 800;
+  width: auto;
+  display: block;
 }
-.navigation .nav-list {
+
+.logo-float {
+  height: 800px;
+}
+
+/* Style du menu "Boutons" */
+.main-nav {
+  flex: 1; /* Prend l'espace central */
+}
+
+.main-nav .nav-list {
   display: flex;
   justify-content: center;
   list-style: none;
+  gap: 10px; /* Espace entre les boutons */
 }
-.navigation .nav-list li {
-  margin: 0 15px;
-}
-.navigation .nav-list a {
-  color: white;
+
+.main-nav .nav-list a {
+  color: #333;
   text-decoration: none;
+  padding: 10px 25px;
+  border: 1px solid #333; /* Bordure fine élégante */
+  border-radius: 30px; /* Arrondi type "pillule" */
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
-.navigation .burger-menu {
+
+.main-nav .nav-list a:hover {
+  background-color: #d4af37; /* Couleur or au survol */
+  color: #fff;
+  border-color: #d4af37;
+  transform: translateY(-2px); /* Petit effet de levier */
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.burger-menu {
   display: none;
   cursor: pointer;
   flex-direction: column;
@@ -81,20 +73,49 @@ body {
   width: 30px;
   margin: 0 auto;
 }
-.navigation .burger-menu span {
+
+.burger-menu span {
   height: 3px;
-  background: white;
+  background: #333;
   width: 100%;
+}
+
+/* Compte Utilisateur */
+.nav-account {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-account img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  transition: transform 0.2s ease;
+}
+
+.nav-account img:hover {
+  transform: scale(1.1);
+  border-color: #d4af37;
+}
+
+/* --- Autres éléments --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .breadcrumb {
   background: #eee;
-  padding: 10px 0;
+  padding: 15px 0;
   font-size: 0.9rem;
 }
+
 .breadcrumb a {
   color: #666;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .studio-carousel {
@@ -103,52 +124,65 @@ body {
   height: 400px;
   background: #000;
 }
+
 .studio-carousel .carousel-container {
   display: flex;
   height: 100%;
 }
+
 .studio-carousel .carousel-container img {
   min-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .studio-description {
-  padding-top: 40px;
+  padding-top: 50px;
 }
+
 .studio-description h2 {
-  margin-bottom: 20px;
-  border-bottom: 2px solid #343232;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #d4af37; /* Rappel couleur or */
   display: inline-block;
+  padding-bottom: 5px;
 }
+
 .studio-description p {
   margin-bottom: 15px;
   line-height: 1.8;
-  color: #333;
+  color: #444;
 }
 
 .testimonials {
-  padding-bottom: 60px;
+  padding: 60px 0;
+  background-color: #fafafa;
+  margin-top: 40px;
 }
+
 .testimonials h2 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-align: center;
 }
+
 .testimonials .testimonials-grid {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
+
 .testimonials .testimonials-grid .card {
   flex: 1;
-  padding: 20px;
-  background: #f4f4f4;
+  padding: 30px;
+  background: #fff;
   border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Ombre légère */
   font-style: italic;
+  text-align: center;
 }
+
 .testimonials .testimonials-grid .card span {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: bold;
   font-style: normal;
   color: #d4af37;
@@ -158,43 +192,49 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: #f4f4f4;
-  border-top: 1px solid #ccc;
-}
-.main-footer .footer-copy {
-  flex: 1;
-  text-align: center;
-}
-.main-footer .footer-links a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #343232;
+  padding: 30px 40px;
+  background: #1a1a1a;
+  color: #fff;
 }
 
+.main-footer .footer-copy {
+  flex: 1;
+}
+
+.main-footer .footer-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ccc;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.main-footer .footer-links a:hover {
+  color: #fff;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
   .main-header {
-    flex-direction: column;
-    text-align: center;
+    flex-wrap: wrap;
+    padding: 10px 20px;
   }
-  .main-header .logo-float {
-    float: none;
-    margin-bottom: 10px;
+  .main-nav {
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
   }
   .nav-list {
-    display: none;
+    display: none; /* Masqué sur mobile par défaut */
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
   }
-  .burger-menu {
+  .nav-list.active {
     display: flex;
   }
-  .studio-carousel {
-    height: 250px;
+  .burger-menu {
+    display: flex; /* Visible sur mobile */
   }
-  .testimonials-grid {
-    flex-direction: column;
-  }
-}
-.logo-container img {
-  width: 280px; /* ⬅️ augmente ici (ex : 240 / 280 / 320) */
-  height: auto; /* garde les proportions */
 }/*# sourceMappingURL=16mesures.css.map */
