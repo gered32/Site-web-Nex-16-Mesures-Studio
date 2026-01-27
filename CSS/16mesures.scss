@@ -3,168 +3,236 @@ $primary: #343232;
 $secondary: #f4f4f4;
 $accent: #d4af37;
 
-// Reset
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif; /* Police un peu plus moderne */
+  background-color: #fff;
+  color: #333;
 }
 
+/* --- Header & Navigation --- */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  height: 120em;
+
+  background: #f4f4f4;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo-container {
+  height: 800;
+  width: auto;
+  display: block;
+}
+
+
+.logo-float {
+    height: 800px;
+}
+/* Style du menu "Boutons" */
+.main-nav {
+  flex: 1; /* Prend l'espace central */
+}
+
+.main-nav .nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 10px; /* Espace entre les boutons */
+}
+
+.main-nav .nav-list a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 25px;
+  border: 1px solid #333; /* Bordure fine élégante */
+  border-radius: 30px; /* Arrondi type "pillule" */
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.main-nav .nav-list a:hover {
+  background-color: #d4af37; /* Couleur or au survol */
+  color: #fff;
+  border-color: #d4af37;
+  transform: translateY(-2px); /* Petit effet de levier */
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  margin: 0 auto;
+}
+
+.burger-menu span {
+  height: 3px;
+  background: #333;
+  width: 100%;
+}
+
+/* Compte Utilisateur */
 .nav-account {
-  justify-self: end;
   display: inline-flex;
-  align-items: right;
+  align-items: center;
 }
 
 .nav-account img {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, .6);
-  transition: transform .2s ease, background .2s ease;
+  border: 2px solid #ddd;
+  transition: transform 0.2s ease;
 }
 
 .nav-account img:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, .1);
+  transform: scale(1.1);
+  border-color: #d4af37;
 }
+
+/* --- Autres éléments --- */
 
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-// Header
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: $secondary;
-
-    .logo-float { height: 600px; float: left; }
-    .title-container h1 { text-align: center; flex: 1; }
-    .cart-container a { text-decoration: none; color: $primary; font-weight: bold; }
-}
-
-// Navigation
-.navigation {
-    background: $primary;
-    padding: 10px;
-
-    .nav-list {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-
-        li { margin: 0 15px; }
-        a { color: white; text-decoration: none; }
-    }
-
-    .burger-menu {
-        display: none; // Hidden on desktop
-        cursor: pointer;
-        flex-direction: column;
-        gap: 5px;
-        width: 30px;
-        margin: 0 auto;
-        span { height: 3px; background: white; width: 100%; }
-    }
-}
-
-// Breadcrumb
 .breadcrumb {
-    background: #eee;
-    padding: 10px 0;
-    font-size: 0.9rem;
-    a { color: #666; text-decoration: none; }
+  background: #eee;
+  padding: 15px 0;
+  font-size: 0.9rem;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-// Carousel
 .studio-carousel {
-    width: 100%;
-    overflow: hidden;
-    height: 400px;
-    background: #000;
-
-    .carousel-container {
-        display: flex;
-        height: 100%;
-        img {
-            min-width: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-        }
-    }
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+  background: #000;
+}
+.studio-carousel .carousel-container {
+  display: flex;
+  height: 100%;
+}
+.studio-carousel .carousel-container img {
+  min-width: 100%;
+  object-fit: cover;
+  opacity: 0.9;
 }
 
-// Sections
 .studio-description {
-    padding-top: 40px;
-    h2 { margin-bottom: 20px; border-bottom: 2px solid $primary; display: inline-block; }
-    p { margin-bottom: 15px; line-height: 1.8; color: #333; }
+  padding-top: 50px;
+}
+.studio-description h2 {
+  margin-bottom: 25px;
+  border-bottom: 3px solid #d4af37; /* Rappel couleur or */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.studio-description p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+  color: #444;
 }
 
 .testimonials {
-    padding-bottom: 60px;
-    h2 { margin-bottom: 30px; text-align: center; }
-    
-    .testimonials-grid {
-        display: flex;
-        gap: 20px;
-
-        .card {
-            flex: 1;
-            padding: 20px;
-            background: $secondary;
-            border-radius: 8px;
-            font-style: italic;
-            span { display: block; margin-top: 10px; font-weight: bold; font-style: normal; color: $accent; }
-        }
-    }
+  padding: 60px 0;
+  background-color: #fafafa;
+  margin-top: 40px;
+}
+.testimonials h2 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.testimonials .testimonials-grid {
+  display: flex;
+  gap: 30px;
+}
+.testimonials .testimonials-grid .card {
+  flex: 1;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Ombre légère */
+  font-style: italic;
+  text-align: center;
+}
+.testimonials .testimonials-grid .card span {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-style: normal;
+  color: #d4af37;
 }
 
-// Footer
 .main-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: $secondary;
-    border-top: 1px solid #ccc;
-
-    .footer-copy { flex: 1; text-align: center; }
-    .footer-links a { margin-left: 15px; text-decoration: none; color: $primary; }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  background: #1a1a1a;
+  color: #fff;
+}
+.main-footer .footer-copy {
+  flex: 1;
+}
+.main-footer .footer-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ccc;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.main-footer .footer-links a:hover {
+  color: #fff;
 }
 
-
-
-
-
-// Responsivité Mobile
+/* --- Responsive --- */
 @media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        text-align: center;
-        .logo-float { float: none; margin-bottom: 10px; }
-    }
+  .main-header {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+  }
+  
+  .main-nav {
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
+  }
 
-    .nav-list { display: none; }
-    .burger-menu { display: flex; }
+  .nav-list {
+    display: none; /* Masqué sur mobile par défaut */
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .nav-list.active {
+    display: flex;
+  }
 
-    .studio-carousel { height: 250px; }
-
-    .testimonials-grid { flex-direction: column; }
-}
-
-.logo-container img {
-  width: 280px;     /* ⬅️ augmente ici (ex : 240 / 280 / 320) */
-  height: auto;     /* garde les proportions */
+  .burger-menu {
+    display: flex; /* Visible sur mobile */
+  }
 }
