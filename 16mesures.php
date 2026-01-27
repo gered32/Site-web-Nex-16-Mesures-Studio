@@ -10,31 +10,28 @@
 
     <header class="main-header">
         <div class="logo-container">
-            <a href="index.html" title="Ceci est un lien image HTML">
-	<img alt="Logo 16 Mesures Records" src="./img/16mesures_logo.png" width="200"/> </a>
+            <a href="index.html" title="Retour à l'accueil">
+                <img class="logo-float" alt="Logo 16 Mesures Records" src="./img/16mesures_logo.png"/> 
+            </a>
         </div>
 
-
-<nav class="navigation">
-        <div class="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-list">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="catalogue.php">Produits</a></li>
-            <li><a href="contact.php">Contact</a></li>
-        </ul>
-    </nav>
-
-
+        <nav class="main-nav">
+            <div class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.php">Produits</a></li>
+                <li><a href="contact.php">Contact</a></li>
+            </ul>
+        </nav>
 
         <a href="authentification.php" class="nav-account" aria-label="Compte">
-                <img src="./img/profilutilisateuranon.png" alt="Compte utilisateur" /></a>
+            <img src="./img/profilutilisateuranon.png" alt="Compte utilisateur" />
+        </a>
     </header>
-
-    
 
     <div class="breadcrumb">
         <div class="container">
@@ -42,16 +39,10 @@
         </div>
     </div>
 
-
-
-
-
-
-
     <main>
         <section class="studio-carousel">
             <div class="carousel-container">
-                <img src="" alt="Cabine d'enregistrement">
+                <img src="img/studio-1.jpg" alt="Cabine d'enregistrement">
                 <img src="img/studio-2.jpg" alt="Console de mixage">
                 <img src="img/studio-3.jpg" alt="Espace détente">
             </div>
@@ -63,8 +54,6 @@
             <p>Que vous soyez un artiste émergent ou confirmé, notre structure vous offre les outils nécessaires pour transformer vos idées en morceaux professionnels. Nous mettons un point d'honneur à créer une atmosphère de travail détendue et productive.</p>
             <p>Notre équipement de pointe allie le grain de l'analogique à la souplesse du numérique pour répondre à toutes les exigences techniques actuelles.</p>
         </section>
-
-        
 
         <section class="testimonials container">
             <h2>Ressentis Clients</h2>
