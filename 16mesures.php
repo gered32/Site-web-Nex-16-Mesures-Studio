@@ -60,7 +60,7 @@
             <div class="testimonials-grid">
                 <div class="card">
                     <p>"Une qualité de son incroyable et une équipe vraiment à l'écoute de mon projet."</p>
-                    <span>- Néo Morisset.</span>
+                    <span>- Kilian Provot.</span>
                 </div>
                 <div class="card">
                     <p>"Le meilleur studio de Chambéry pour le mixage de voix. Je recommande à 100%."</p>
