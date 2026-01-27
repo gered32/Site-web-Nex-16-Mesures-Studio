@@ -163,3 +163,8 @@ body {
 
     .testimonials-grid { flex-direction: column; }
 }
+
+.logo-container img {
+  width: 280px;     /* ⬅️ augmente ici (ex : 240 / 280 / 320) */
+  height: auto;     /* garde les proportions */
+}

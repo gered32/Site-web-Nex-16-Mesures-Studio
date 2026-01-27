@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ body {
 .nav-account {
   justify-self: end;
   display: inline-flex;
-  align-items: center;
+  align-items: right;
 }
 
 .nav-account img {
@@ -43,7 +44,7 @@ body {
   background: #f4f4f4;
 }
 .main-header .logo-float {
-  height: 60px;
+  height: 600px;
   float: left;
 }
 .main-header .title-container h1 {
@@ -52,27 +53,27 @@ body {
 }
 .main-header .cart-container a {
   text-decoration: none;
-  color: #1a1a1a;
+  color: #343232;
   font-weight: bold;
 }
 
-.main-nav {
-  background: #1a1a1a;
+.navigation {
+  background: #343232;
   padding: 10px;
 }
-.main-nav .nav-list {
+.navigation .nav-list {
   display: flex;
   justify-content: center;
   list-style: none;
 }
-.main-nav .nav-list li {
+.navigation .nav-list li {
   margin: 0 15px;
 }
-.main-nav .nav-list a {
+.navigation .nav-list a {
   color: white;
   text-decoration: none;
 }
-.main-nav .burger-menu {
+.navigation .burger-menu {
   display: none;
   cursor: pointer;
   flex-direction: column;
@@ -80,7 +81,7 @@ body {
   width: 30px;
   margin: 0 auto;
 }
-.main-nav .burger-menu span {
+.navigation .burger-menu span {
   height: 3px;
   background: white;
   width: 100%;
@@ -118,7 +119,7 @@ body {
 }
 .studio-description h2 {
   margin-bottom: 20px;
-  border-bottom: 2px solid #1a1a1a;
+  border-bottom: 2px solid #343232;
   display: inline-block;
 }
 .studio-description p {
@@ -168,7 +169,7 @@ body {
 .main-footer .footer-links a {
   margin-left: 15px;
   text-decoration: none;
-  color: #1a1a1a;
+  color: #343232;
 }
 
 @media (max-width: 768px) {
@@ -192,4 +193,8 @@ body {
   .testimonials-grid {
     flex-direction: column;
   }
+}
+.logo-container img {
+  width: 280px; /* ⬅️ augmente ici (ex : 240 / 280 / 320) */
+  height: auto; /* garde les proportions */
 }/*# sourceMappingURL=16mesures.css.map */
