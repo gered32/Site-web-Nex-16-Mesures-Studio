@@ -68,7 +68,7 @@
                 </div>
                 <div class="card">
                     <p>"Ambiance super pro, on se sent tout de suite à l'aise pour enregistrer."</p>
-                    <span>- Kanye West.</span>
+                    <span>- Kanye Wet.</span>
                 </div>
             </div>
         </section>
