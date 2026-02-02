@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>16 Mesures Records - Studio d'enregistrement</title>
-    <link rel="stylesheet" href="./css/16mesures.css">
+    <title>NEX - Studio Location/Réparation</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/nex_logo.png">
+    <link rel="stylesheet" href="../../CSS/16_nex.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="logo-container">
-            <a href="index.html" title="Retour à l'accueil">
-                <img class="logo-float" alt="Logo 16 Mesures Records" src="./img/16mesures_logo.png"/> 
+            <a href="../index.html" title="Retour à l'accueil">
+                <img class="logo-float" alt="Logo NEX" src="../../img/nex_logo.png"/> 
             </a>
         </div>
 
@@ -29,13 +30,13 @@
         </nav>
 
         <a href="authentification.php" class="nav-account" aria-label="Compte">
-            <img src="./img/profilutilisateuranon.png" alt="Compte utilisateur" />
+            <img src="../../img/profilutilisateuranon.png" alt="Compte utilisateur" />
         </a>
     </header>
 
     <div class="breadcrumb">
         <div class="container">
-            <a href="index.html">Accueil</a> > <span>16 Mesures Records</span>
+            <a href="../../index.html">Accueil</a> > <span>NEX</span>
         </div>
     </div>
 
@@ -60,7 +61,7 @@
             <div class="testimonials-grid">
                 <div class="card">
                     <p>"Une qualité de son incroyable et une équipe vraiment à l'écoute de mon projet."</p>
-                    <span>- Kilian Provot.</span>
+                    <span>- Kylian Provot.</span>
                 </div>
                 <div class="card">
                     <p>"Le meilleur studio de Chambéry pour le mixage de voix. Je recommande à 100%."</p>

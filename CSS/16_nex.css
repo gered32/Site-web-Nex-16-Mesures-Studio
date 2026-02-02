@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.nav-account {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-account img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-account img:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #f4f4f4;
+}
+.main-header .logo-float {
+  height: 60px;
+  float: left;
+}
+.main-header .title-container h1 {
+  text-align: center;
+  flex: 1;
+}
+.main-header .cart-container a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.main-nav {
+  background: #1a1a1a;
+  padding: 10px;
+}
+.main-nav .nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.main-nav .nav-list li {
+  margin: 0 15px;
+}
+.main-nav .nav-list a {
+  color: white;
+  text-decoration: none;
+}
+.main-nav .burger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  margin: 0 auto;
+}
+.main-nav .burger-menu span {
+  height: 3px;
+  background: white;
+  width: 100%;
+}
+
+.breadcrumb {
+  background: #eee;
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+.studio-carousel {
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+  background: #000;
+}
+.studio-carousel .carousel-container {
+  display: flex;
+  height: 100%;
+}
+.studio-carousel .carousel-container img {
+  min-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.8;
+}
+
+.studio-description {
+  padding-top: 40px;
+}
+.studio-description h2 {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #1a1a1a;
+  display: inline-block;
+}
+.studio-description p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.testimonials {
+  padding-bottom: 60px;
+}
+.testimonials h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.testimonials .testimonials-grid {
+  display: flex;
+  gap: 20px;
+}
+.testimonials .testimonials-grid .card {
+  flex: 1;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  font-style: italic;
+}
+.testimonials .testimonials-grid .card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-style: normal;
+  color: #d4af37;
+}
+
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #f4f4f4;
+  border-top: 1px solid #ccc;
+}
+.main-footer .footer-copy {
+  flex: 1;
+  text-align: center;
+}
+.main-footer .footer-links a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main-header .logo-float {
+    float: none;
+    margin-bottom: 10px;
+  }
+  .nav-list {
+    display: none;
+  }
+  .burger-menu {
+    display: flex;
+  }
+  .studio-carousel {
+    height: 250px;
+  }
+  .testimonials-grid {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=16_nex.css.map */
