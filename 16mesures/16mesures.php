@@ -11,7 +11,7 @@
 
     <header class="main-header">
         <div class="logo-container">
-            <a href="./index.html" title="Retour à l'accueil">
+            <a href="../index.html" title="Retour à l'accueil">
                 <img class="logo-float" alt="Logo 16 Mesures Records" src="../img/16mesures_logo.png"/> 
             </a>
         </div>
@@ -29,7 +29,7 @@
             </ul>
         </nav>
 
-        <a href="authentification.php" class="nav-account" aria-label="Compte">
+        <a href="../authentification.php" class="nav-account" aria-label="Compte">
             <img src="../img/profilutilisateuranon.png" alt="Compte utilisateur" />
         </a>
     </header>

@@ -29,7 +29,7 @@
             </ul>
         </nav>
 
-        <a href="authentification.php" class="nav-account" aria-label="Compte">
+        <a href="../../authentification.php" class="nav-account" aria-label="Compte">
             <img src="../../img/profilutilisateuranon.png" alt="Compte utilisateur" />
         </a>
     </header>
