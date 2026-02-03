@@ -12,7 +12,7 @@ if (is_logged_in()) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Compte — Connexion / Inscription</title>
-  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./css/auth.css">
 </head>
 <body>
 <main class="auth-container">

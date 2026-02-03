@@ -1,0 +1,202 @@
+@charset "UTF-8";
+/* auth.scss
+   Styles pour : auth.php, login.php, register.php, dashboard.php
+   Objectif : propre, lisible, responsive, sans framework
+*/
+/* --------------------------- */
+/* 1) Variables (faciles à changer) */
+/* --------------------------- */
+/* --------------------------- */
+/* 2) Reset minimal + base */
+/* --------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0c10;
+  color: #ffffff;
+}
+
+/* --------------------------- */
+/* 3) Layout principal des pages auth */
+/* --------------------------- */
+.auth-container {
+  min-height: 100vh;
+  padding: clamp(18px, 4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.auth-card {
+  /* Optionnel : si tu veux mettre une "carte" autour de tout */
+  width: min(420px, 92vw);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: clamp(14px, 3.5vw, 22px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Titres */
+.auth-container h1 {
+  margin: 0;
+  font-size: clamp(22px, 3.6vw, 30px);
+  letter-spacing: 0.2px;
+}
+
+.muted {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+}
+
+/* --------------------------- */
+/* 4) Formulaires */
+/* --------------------------- */
+.auth-form {
+  width: min(360px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form input {
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.auth-form input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Bouton en <button> */
+.auth-form button {
+  border: 0;
+  cursor: pointer;
+}
+
+/* --------------------------- */
+/* 5) Zone d’actions (liens/boutons) */
+/* --------------------------- */
+.auth-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* ✅ utile en mobile */
+  justify-content: center;
+}
+
+/* --------------------------- */
+/* 6) Boutons (réutilisables) */
+/* --------------------------- */
+.btn-homepage,
+.btn--ghost-homepage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #ffffff;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-homepage {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.btn-homepage:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.25);
+}
+.btn-homepage:active {
+  transform: translateY(0px);
+}
+
+.btn--ghost-homepage {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.btn--ghost-homepage:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+}
+.btn--ghost-homepage:active {
+  transform: translateY(0px);
+}
+
+/* --------------------------- */
+/* 7) Liens */
+/* --------------------------- */
+.link {
+  display: inline-block; /* pour que margin/padding s'appliquent bien */
+  color: #ffffff;
+  opacity: 0.92;
+  text-decoration: underline;
+  margin-top: 6px;
+}
+.link:hover {
+  opacity: 1;
+}
+
+/* --------------------------- */
+/* 8) Message d’erreur */
+/* --------------------------- */
+.error {
+  width: min(380px, 92vw);
+  margin: 0;
+  padding: 10px 12px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  border-radius: 12px;
+  color: #ffb4b4;
+}
+
+/* --------------------------- */
+/* 9) Bonus : si tu veux le "Retour" toujours en bas */
+/* (optionnel) */
+/* --------------------------- */
+/*
+.auth-container .link.bottom {
+  margin-top: auto;
+  padding-top: 10px;
+}
+*/
+/* --------------------------- */
+/* 10) Mobile */
+/* --------------------------- */
+@media (max-width: 420px) {
+  .auth-actions {
+    flex-direction: column;
+    width: min(360px, 92vw);
+  }
+  .auth-actions .btn-homepage,
+  .auth-actions .btn--ghost-homepage {
+    width: 100%;
+  }
+}/*# sourceMappingURL=auth.css.map */
