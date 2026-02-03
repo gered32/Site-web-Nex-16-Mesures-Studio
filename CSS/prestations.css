@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .page {
   padding-bottom: 40px;
 }
@@ -177,7 +178,9 @@
   color: #1a1a1a;
 }
 
-.booking-form input, .booking-form select, .booking-form textarea {
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -201,4 +204,9 @@
   .slot-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+/* 🔧 SEULE MODIFICATION : TAILLE DU LOGO */
+.main-header .logo-float {
+  width: 360px; /* ⬅️ augmenté (avant 320px) */
+  height: auto;
 }/*# sourceMappingURL=prestations.css.map */
