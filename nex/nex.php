@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEX - Studio Location/Réparation</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../../img/nex_logo.png">
-    <link rel="stylesheet" href="../../CSS/16_nex.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/nex_logo.png">
+    <link rel="stylesheet" href="../css/16_nex.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="logo-container">
             <a href="../../index.html" title="Retour à l'accueil">
-                <img class="logo-float" alt="Logo NEX" src="../../img/nex_logo.png"/> 
+                <img class="logo-float" alt="Logo NEX" src="../img/nex_logo.png" /> 
             </a>
         </div>
 

@@ -1,3 +1,62 @@
+<?php
+// On charge la config (Le ../ suppose que ce fichier est dans un dossier, ex: /pages/)
+// Si ce fichier est à la racine, mettez juste "config.php"
+require_once "../config.php"; 
+
+// 1. PROTECTION : Si pas connecté, on renvoie au login
+if (!is_logged_in()) {
+    header("Location: ../login.php?error=login_required");
+    exit;
+}
+
+// Initialisation de la "réservation en cours"
+if (!isset($_SESSION['reservation_item'])) {
+    $_SESSION['reservation_item'] = null;
+}
+
+$message = "";
+
+// 2. TRAITEMENT DES ACTIONS
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // --- A. SÉLECTIONNER UN PACK (Mise en mémoire) ---
+    if (isset($_POST['select_service'])) {
+        $_SESSION['reservation_item'] = $_POST['select_service'];
+        // On redirige vers l'ancre #reservation pour une expérience fluide
+        header("Location: prestations.php#reservation"); 
+        exit;
+    }
+
+    // --- B. ANNULER LA SÉLECTION ---
+    if (isset($_POST['cancel_service'])) {
+        $_SESSION['reservation_item'] = null;
+    }
+
+    // --- C. VALIDER LA RÉSERVATION (Vérification du MDP) ---
+    if (isset($_POST['confirm_booking'])) {
+        $mdp_saisi = $_POST['password_verif'];
+        $email_actuel = $_SESSION['user']['email'];
+        
+        // Données du formulaire
+        $date_souhaitee = $_POST['datetime'];
+        $details = $_POST['details'];
+        $service_choisi = $_SESSION['reservation_item'];
+
+        // Chargement des utilisateurs pour vérifier le vrai hash
+        $users = load_users(); 
+        $user_info = find_user_by_email($email_actuel, $users);
+
+        if ($user_info && password_verify($mdp_saisi, $user_info['password_hash'])) {
+            // C'est ici qu'on enregistrerait la réservation dans une BDD ou on enverrait un mail
+            $message = "<div class='success-box'>✅ Réservation confirmée pour <strong>$service_choisi</strong> !<br>Date : $date_souhaitee. On revient vers toi vite.</div>";
+            $_SESSION['reservation_item'] = null; // On vide la sélection
+        } else {
+            $message = "<div class='error-box'>❌ Mot de passe incorrect. Réservation non validée.</div>";
+        }
+    }
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -5,12 +64,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prestations — 16 Mesures Records</title>
   <link rel="stylesheet" href="../css/16mesures.css" />
-  <!-- Si tu veux isoler le style, tu peux créer prestations.css -->
   <link rel="stylesheet" href="../css/prestations.css" />
+  
+  <style>
+      /* Petit style inline pour les messages PHP (à mettre dans ton CSS idéalement) */
+      .success-box { background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center; border: 1px solid #c3e6cb; }
+      .error-box { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center; border: 1px solid #f5c6cb; }
+      .selected-service-info { background: #e2e6ea; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #333; }
+  </style>
 </head>
 <body>
 
-  <!-- HEADER (tu peux garder ton header actuel) -->
   <header class="main-header">
     <div class="logo-container">
       <a href="../index.html" title="Retour à l'accueil">
@@ -24,32 +88,25 @@
       </div>
       <ul class="nav-list">
         <li><a href="../index.html">Accueil</a></li>
-        <li><a href="prestations.html">Prestations</a></li>
+        <li><a href="prestations.php" class="active">Prestations</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
     </nav>
 
     <a href="../authentification.php" class="nav-account" aria-label="Compte">
+      <span style="font-size: 0.8rem; margin-right: 10px; color: white;"><?= htmlspecialchars($_SESSION['user']['username']) ?></span>
       <img src="../img/profilutilisateuranon.png" alt="Compte utilisateur" />
     </a>
   </header>
 
   <main class="page">
 
-    <!-- HERO -->
     <section class="hero container">
       <h1>Prestations</h1>
-      <p class="lead">
-        Enregistrement, mixage, mastering : des formules claires, adaptées aux artistes indépendants.
-      </p>
 
-      <div class="hero-actions">
-        <a class="btn-primary" href="#reservation">Réserver une session</a>
-        <a class="btn-ghost" href="contact.php">Demander un devis</a>
-      </div>
+      <?= $message ?>
     </section>
 
-    <!-- PACKS STUDIO -->
     <section class="section container" id="packs">
       <div class="section-head">
         <h2>Packs Studio</h2>
@@ -65,8 +122,11 @@
             <li>Export WAV</li>
           </ul>
           <div class="card-footer">
-            <span class="price">à partir de 30€</span>
-            <a class="btn-primary" href="#reservation">Réserver</a>
+            <span class="price">30€</span>
+            <form method="post">
+                <input type="hidden" name="select_service" value="Pack Découverte (1h)">
+                <button type="submit" class="btn-primary">Sélectionner</button>
+            </form>   
           </div>
         </article>
 
@@ -74,12 +134,15 @@
           <h3>Pack Session — 2h</h3>
           <ul>
             <li>Enregistrement complet (1 morceau)</li>
-            <li>Édition légère (respirations / coupes)</li>
+            <li>Édition légère</li>
             <li>Exports WAV + MP3</li>
           </ul>
           <div class="card-footer">
-            <span class="price">à partir de 60€</span>
-            <a class="btn-primary" href="#reservation">Réserver</a>
+            <span class="price">60€</span>
+            <form method="post">
+                <input type="hidden" name="select_service" value="Pack Session (2h)">
+                <button type="submit" class="btn-primary">Sélectionner</button>
+            </form>
           </div>
         </article>
 
@@ -87,23 +150,21 @@
           <div class="badge">Le plus choisi</div>
           <h3>Pack Track — 4h</h3>
           <ul>
-            <li>Enregistrement + direction artistique</li>
-            <li>Nettoyage voix + pré-mix (balance)</li>
+            <li>Enregistrement + DA</li>
+            <li>Nettoyage voix + pré-mix</li>
             <li>Exports stems si besoin</li>
           </ul>
           <div class="card-footer">
-            <span class="price">à partir de 100€</span>
-            <a class="btn-primary" href="#reservation">Réserver</a>
+            <span class="price">100€</span>
+            <form method="post">
+                <input type="hidden" name="select_service" value="Pack Track (4h)">
+                <button type="submit" class="btn-primary">Sélectionner</button>
+            </form>
           </div>
         </article>
       </div>
-
-      <p class="note">
-        * Les tarifs varient selon la complexité du projet. Possibilité de devis sur mesure.
-      </p>
     </section>
 
-    <!-- MIX / MASTER -->
     <section class="section container" id="mixmaster">
       <div class="section-head">
         <h2>Mix & Master</h2>
@@ -114,119 +175,93 @@
         <article class="card">
           <h3>Mixage</h3>
           <ul>
-            <li>Équilibrage, EQ, compression, FX</li>
-            <li>1 à 2 révisions incluses</li>
-            <li>Export WAV + MP3</li>
+            <li>Équilibrage, EQ, compression</li>
+            <li>2 révisions incluses</li>
           </ul>
           <div class="card-footer">
-            <span class="price">à partir de 50€</span>
-            <a class="btn-ghost" href="contact.php">Devis Mix</a>
+            <span class="price">50€</span>
+            <form method="post">
+                <input type="hidden" name="select_service" value="Mixage Simple">
+                <button type="submit" class="btn-ghost">Sélectionner</button>
+            </form>
           </div>
         </article>
 
         <article class="card">
-          <h3>Mastering</h3>
-          <ul>
-            <li>Optimisation loudness / dynamique</li>
-            <li>Rendu streaming-ready</li>
-            <li>Formats : WAV 24bit / 16bit</li>
-          </ul>
-          <div class="card-footer">
-            <span class="price">à partir de 30€</span>
-            <a class="btn-ghost" href="contact.php">Devis Master</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Mix + Master</h3>
-          <ul>
-            <li>Pack complet pour sortir ton morceau</li>
-            <li>Révisions incluses</li>
-            <li>Livraison propre & organisée</li>
-          </ul>
-          <div class="card-footer">
-            <span class="price">à partir de 120€</span>
-            <a class="btn-primary" href="contact.php">Demander un devis</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Option : Enregistrement + Mix</h3>
-          <ul>
-            <li>Tu viens enregistrer au studio</li>
-            <li>Mixage du morceau</li>
-            <li>Idéal pour gagner du temps</li>
-          </ul>
-          <div class="card-footer">
-            <span class="price">à partir de 150€</span>
-            <a class="btn-primary" href="#reservation">Réserver</a>
-          </div>
-        </article>
+            <h3>Mastering</h3>
+            <ul>
+              <li>Optimisation loudness</li>
+              <li>Rendu streaming-ready</li>
+            </ul>
+            <div class="card-footer">
+              <span class="price">30€</span>
+              <form method="post">
+                  <input type="hidden" name="select_service" value="Mastering">
+                  <button type="submit" class="btn-ghost">Sélectionner</button>
+              </form>
+            </div>
+          </article>
       </div>
     </section>
 
-    <!-- RESERVATION -->
     <section class="section container" id="reservation">
       <div class="section-head">
         <h2>Réserver une session</h2>
-        <p>Choisis un créneau et décris ton besoin. Je te confirme rapidement.</p>
+        <p>Choisis un créneau et valide avec ton mot de passe.</p>
       </div>
 
       <div class="booking">
-        <!-- Grille de créneaux simple (exemple) -->
-        <div class="slots">
-          <h3>Créneaux disponibles (exemple)</h3>
-          <div class="slot-grid">
-            <button type="button" class="slot">Lun 18:00</button>
-            <button type="button" class="slot">Mar 19:00</button>
-            <button type="button" class="slot">Mer 17:00</button>
-            <button type="button" class="slot">Jeu 20:00</button>
-            <button type="button" class="slot">Ven 18:00</button>
-            <button type="button" class="slot">Sam 14:00</button>
-          </div>
-          <p class="note">
-            <!-- * Exemple visuel. Si tu veux un vrai système, je te mets Google Calendar/Calendly en place. -->
-          </p>
-        </div>
+        
+        <?php if (!$_SESSION['reservation_item']): ?>
+            <div style="text-align: center; padding: 40px; background: #fff; border-radius: 8px;">
+                <h3>Aucune prestation sélectionnée</h3>
+                <p>Veuillez choisir un pack ci-dessus pour accéder au formulaire de réservation.</p>
+                <a href="#packs" class="btn-primary">Choisir un Pack</a>
+            </div>
 
-        <!-- Formulaire -->
-        <form class="booking-form" action="reservation.php" method="post">
-          <label>
-            Nom / Blaze
-            <input type="text" name="name" required>
-          </label>
+        <?php else: ?>
+            
+            <div class="selected-service-info">
+                <h3>Prestation choisie : <span style="color: #007bff;"><?= htmlspecialchars($_SESSION['reservation_item']) ?></span></h3>
+                <form method="post" style="display:inline;">
+                    <button type="submit" name="cancel_service" style="background:none; border:none; text-decoration:underline; cursor:pointer; color: red;">(Changer de pack)</button>
+                </form>
+            </div>
 
-          <label>
-            Email
-            <input type="email" name="email" required>
-          </label>
+            <form class="booking-form" method="post">
+                <label>
+                    Nom / Blaze (Compte)
+                    <input type="text" value="<?= htmlspecialchars($_SESSION['user']['username']) ?>" disabled style="background:#eee;">
+                </label>
 
-          <label>
-            Prestation
-            <select name="service" required>
-              <option value="">Choisir…</option>
-              <option>Pack Découverte (1h)</option>
-              <option>Pack Session (2h)</option>
-              <option>Pack Track (4h)</option>
-              <option>Mixage</option>
-              <option>Mastering</option>
-              <option>Mix + Master</option>
-            </select>
-          </label>
+                <label>
+                    Email de contact
+                    <input type="email" value="<?= htmlspecialchars($_SESSION['user']['email']) ?>" disabled style="background:#eee;">
+                </label>
 
-          <label>
-            Date / Heure souhaitée
-            <input type="text" name="datetime" placeholder="Ex : Mer 17:00" required>
-          </label>
+                <label>
+                    Date / Heure souhaitée
+                    <input type="text" name="datetime" placeholder="Ex : Mercredi 12 Oct à 17h00" required>
+                </label>
 
-          <label>
-            Détails (BPM, nombre de pistes, deadline…)
-            <textarea name="details" rows="5" placeholder="Dis-moi ce dont tu as besoin"></textarea>
-          </label>
+                <label>
+                    Détails du projet (BPM, mood, instru...)
+                    <textarea name="details" rows="5" placeholder="Dis-moi ce dont tu as besoin..." required></textarea>
+                </label>
 
-          <button class="btn-primary" type="submit">Envoyer la demande</button>
-          <p class="note">Tu recevras une confirmation avant validation définitive.</p>
-        </form>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+                
+                <label style="font-weight: bold; color: #333;">
+                    Confirmer la réservation avec votre mot de passe :
+                    <input type="password" name="password_verif" placeholder="Mot de passe du compte" required style="margin-top: 5px;">
+                </label>
+
+                <button class="btn-primary" type="submit" name="confirm_booking">Valider la demande</button>
+                <p class="note">En validant, vous vous engagez à être présent au studio.</p>
+            </form>
+
+        <?php endif; ?>
+
       </div>
     </section>
 
