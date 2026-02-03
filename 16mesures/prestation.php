@@ -154,7 +154,7 @@
           <h3>Option : Enregistrement + Mix</h3>
           <ul>
             <li>Tu viens enregistrer au studio</li>
-            <li>Mixage du morceau ensuite</li>
+            <li>Mixage du morceau</li>
             <li>Idéal pour gagner du temps</li>
           </ul>
           <div class="card-footer">
