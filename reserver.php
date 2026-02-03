@@ -51,11 +51,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
   <meta charset="utf-8">
   <title>Boutique</title>
-  <link rel="stylesheet" href="./reserver.css"> 
+  <link rel="stylesheet" href="./CSS/reserver.css">
 </head>
-<body class="auth-container">
 
-<main class="auth-container" style="max-width: 800px;"> <h1>Boutique VIP</h1>
+<body class="boutique-page">
+
+<main class="auth-container"> 
+  <h1>Boutique VIP</h1>
   <p>Connecté en tant que : <strong><?= htmlspecialchars($_SESSION['user']['username']) ?></strong></p>
   
   <?= $message ?>
