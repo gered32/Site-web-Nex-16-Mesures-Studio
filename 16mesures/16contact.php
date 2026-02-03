@@ -24,8 +24,8 @@
       </div>
       <ul class="nav-list">
         <li><a href="../index.html">Accueil</a></li>
-        <li><a href="prestations.html">Prestations</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="prestation.php">Prestations</a></li>
+        <li><a href="contact.php">Contact</a></li>
       </ul>
     </nav>
 
