@@ -9,68 +9,44 @@ body {
   background-color: #fff;
 }
 
-.nav-account {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-}
-
-.nav-account img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.nav-account img:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
+  font-size: 0.8rem;
 }
 
 .main-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px 32px;
-  background: #f4f4f4;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background: #1a1a1a;
 }
-.main-header .logo-float {
-  width: 200px;
-  height: auto;
-}
-.main-header .title-container h1 {
-  text-align: center;
+.main-header .logo-container {
   flex: 1;
+  text-align: center;
 }
-.main-header .cart-container a {
-  text-decoration: none;
-  color: #1a1a1a;
-  font-weight: bold;
+.main-header .logo-container .logo-float {
+  width: 150px;
+  height: auto;
 }
 
 .main-nav {
-  background: #1a1a1a;
-  padding: 10px;
+  flex: 1;
 }
 .main-nav .nav-list {
   display: flex;
-  justify-content: center;
   list-style: none;
-}
-.main-nav .nav-list li {
-  margin: 0 15px;
+  gap: 20px;
 }
 .main-nav .nav-list a {
   color: white;
   text-decoration: none;
+  font-weight: bold;
+}
+.main-nav .nav-list a:hover {
+  color: #ccc;
 }
 .main-nav .burger-menu {
   display: none;
@@ -78,7 +54,6 @@ body {
   flex-direction: column;
   gap: 5px;
   width: 30px;
-  margin: 0 auto;
 }
 .main-nav .burger-menu span {
   height: 3px;
@@ -86,35 +61,57 @@ body {
   width: 100%;
 }
 
-.breadcrumb {
-  background: #eee;
-  padding: 10px 0;
-  font-size: 0.9rem;
-}
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-
-.studio-carousel {
-  width: 100%;
-  overflow: hidden;
-  height: 400px;
-  background: #000;
-}
-.studio-carousel .carousel-container {
+.nav-account {
+  flex: 1;
   display: flex;
-  height: 100%;
+  justify-content: flex-end;
 }
-.studio-carousel .carousel-container img {
-  min-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  opacity: 0.8;
+.nav-account img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease;
+}
+.nav-account img:hover {
+  transform: scale(1.1);
 }
 
+.carousel {
+  margin: 50px auto;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.group {
+  display: flex;
+  animation: spin 20s linear infinite;
+}
+
+.card {
+  flex: 0 0 200px;
+  height: 100px;
+  margin: 10px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 8px;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 .studio-description {
-  padding-top: 40px;
+  padding: 40px 0;
 }
 .studio-description h2 {
   margin-bottom: 20px;
@@ -127,43 +124,12 @@ body {
   color: #333;
 }
 
-.testimonials {
-  padding-bottom: 60px;
-}
-.testimonials h2 {
-  margin-bottom: 30px;
-  text-align: center;
-}
-.testimonials .testimonials-grid {
-  display: flex;
-  gap: 20px;
-}
-.testimonials .testimonials-grid .card {
-  flex: 1;
-  padding: 20px;
-  background: #f4f4f4;
-  border-radius: 8px;
-  font-style: italic;
-}
-.testimonials .testimonials-grid .card span {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  font-style: normal;
-  color: #d4af37;
-}
-
 .main-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 20px 40px;
   background: #f4f4f4;
   border-top: 1px solid #ccc;
-}
-.main-footer .footer-copy {
-  flex: 1;
-  text-align: center;
 }
 .main-footer .footer-links a {
   margin-left: 15px;
@@ -172,24 +138,13 @@ body {
 }
 
 @media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .main-header .logo-float {
-    width: 240px;
-    margin-bottom: 10px;
-  }
   .nav-list {
     display: none;
   }
   .burger-menu {
     display: flex;
   }
-  .studio-carousel {
-    height: 250px;
-  }
-  .testimonials-grid {
-    flex-direction: column;
+  .main-header {
+    padding: 10px 20px;
   }
 }/*# sourceMappingURL=16_nex.css.map */

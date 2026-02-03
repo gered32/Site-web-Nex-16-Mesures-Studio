@@ -6,15 +6,20 @@
     <title>NEX - Studio Location/Réparation</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../img/nex_logo.png">
     <link rel="stylesheet" href="../css/16_nex.css">
-</head>
-<body>
 
+</head>
     <header class="main-header">
         <div class="logo-container">
             <a href="../../index.html" title="Retour à l'accueil">
                 <img class="logo-float" alt="Logo NEX" src="../img/nex_logo.png" /> 
             </a>
         </div>
+
+        
+
+<body>
+
+    
 
         <nav class="main-nav">
             <div class="burger-menu">
@@ -39,14 +44,33 @@
         </div>
     </div>
 
-    <main>
-        <section class="studio-carousel">
-            <div class="carousel-container">
-                <img src="img/studio-1.jpg" alt="Cabine d'enregistrement">
-                <img src="img/studio-2.jpg" alt="Console de mixage">
-                <img src="img/studio-3.jpg" alt="Espace détente">
-            </div>
-        </section>
+
+
+    
+
+
+        <div class="carousel">
+            <div class="group">
+                <div class="card">1</div>
+                <div class="card">2</div>
+                <div class="card">3</div>
+                <div class="card">4</div>
+                <div class="card">5</div>
+                <div class="card">6</div>
+        </div>
+
+        <div aria-hidden class="group">
+                <div class="card">1</div>
+                <div class="card">2</div>
+                <div class="card">3</div>
+                <div class="card">4</div>
+                <div class="card">5</div>
+                <div class="card">6</div>
+        </div>
+    </div>
+
+
+
 
         <section class="studio-description container">
             <h2>Le Studio Réparation-Location</h2>

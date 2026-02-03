@@ -1,7 +1,6 @@
 // Variables
 $primary: #1a1a1a;
 $secondary: #f4f4f4;
-$accent: #d4af37;
 
 // Reset
 * {
@@ -15,81 +14,50 @@ body {
   background-color: #fff;
 }
 
-// =======================
-// COMPTE
-// =======================
-.nav-account {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-}
-
-.nav-account img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, .6);
-  transition: transform .2s ease, background .2s ease;
-}
-
-.nav-account img:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, .1);
-}
-
-// =======================
-// CONTAINER
-// =======================
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
+  font-size: 0.8rem;
 }
 
 // =======================
-// HEADER
+// HEADER (Flexbox pour l'alignement)
 // =======================
 .main-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 8px 32px;
-  background: $secondary;
+  justify-content: space-between; // Espace entre nav, logo et compte
+  padding: 10px 40px;
+  background: $primary;
 
-  // ❌ AVANT : .logo-float img { height: 150px; }
-  // ✅ FIX LOGO : on cible directement l’image
-  .logo-float {
-    width: 200px;   // 🔧 CHANGE ICI LA TAILLE DU LOGO
-    height: auto;
-  }
-
-  .title-container h1 {
-    text-align: center;
+  .logo-container {
     flex: 1;
-  }
-
-  .cart-container a {
-    text-decoration: none;
-    color: $primary;
-    font-weight: bold;
+    text-align: center; // Centre le logo
+    .logo-float {
+      width: 150px;
+      height: auto;
+    }
   }
 }
 
 // =======================
-// NAVIGATION
+// NAVIGATION (À GAUCHE)
 // =======================
 .main-nav {
-  background: $primary;
-  padding: 10px;
+  flex: 1; // Prend de la place à gauche
 
   .nav-list {
     display: flex;
-    justify-content: center;
     list-style: none;
+    gap: 20px;
 
-    li { margin: 0 15px; }
-    a { color: white; text-decoration: none; }
+    a { 
+      color: white; 
+      text-decoration: none;
+      font-weight: bold;
+      &:hover { color: #ccc; }
+    }
   }
 
   .burger-menu {
@@ -98,101 +66,65 @@ body {
     flex-direction: column;
     gap: 5px;
     width: 30px;
-    margin: 0 auto;
-
-    span {
-      height: 3px;
-      background: white;
-      width: 100%;
-    }
+    span { height: 3px; background: white; width: 100%; }
   }
 }
 
 // =======================
-// BREADCRUMB
+// COMPTE (À DROITE)
 // =======================
-.breadcrumb {
-  background: #eee;
-  padding: 10px 0;
-  font-size: 0.9rem;
+.nav-account {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; // Pousse l'icône à l'extrémité droite
 
-  a {
-    color: #666;
-    text-decoration: none;
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .6);
+    transition: transform .2s ease;
+    &:hover { transform: scale(1.1); }
   }
 }
 
 // =======================
-// CAROUSEL
+// CAROUSEL & SECTIONS
 // =======================
-.studio-carousel {
+.carousel {
+  margin: 50px auto;
   width: 100%;
+  display: flex;
   overflow: hidden;
-  height: 400px;
-  background: #000;
-
-  .carousel-container {
-    display: flex;
-    height: 100%;
-
-    img {
-      min-width: 100%;
-      object-fit: cover;
-      opacity: 0.8;
-    }
-  }
+  background: $secondary;
 }
 
-// =======================
-// DESCRIPTION
-// =======================
+.group {
+  display: flex;
+  animation: spin 20s linear infinite;
+}
+
+.card {
+  flex: 0 0 200px;
+  height: 100px;
+  margin: 10px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 8px;
+}
+
+@keyframes spin {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
 .studio-description {
-  padding-top: 40px;
-
-  h2 {
-    margin-bottom: 20px;
-    border-bottom: 2px solid $primary;
-    display: inline-block;
-  }
-
-  p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-    color: #333;
-  }
-}
-
-// =======================
-// TÉMOIGNAGES
-// =======================
-.testimonials {
-  padding-bottom: 60px;
-
-  h2 {
-    margin-bottom: 30px;
-    text-align: center;
-  }
-
-  .testimonials-grid {
-    display: flex;
-    gap: 20px;
-
-    .card {
-      flex: 1;
-      padding: 20px;
-      background: $secondary;
-      border-radius: 8px;
-      font-style: italic;
-
-      span {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-        font-style: normal;
-        color: $accent;
-      }
-    }
-  }
+  padding: 40px 0;
+  h2 { margin-bottom: 20px; border-bottom: 2px solid $primary; display: inline-block; }
+  p { margin-bottom: 15px; line-height: 1.8; color: #333; }
 }
 
 // =======================
@@ -201,15 +133,9 @@ body {
 .main-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 20px 40px;
   background: $secondary;
   border-top: 1px solid #ccc;
-
-  .footer-copy {
-    flex: 1;
-    text-align: center;
-  }
 
   .footer-links a {
     margin-left: 15px;
@@ -222,19 +148,7 @@ body {
 // RESPONSIVE
 // =======================
 @media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    text-align: center;
-
-    .logo-float {
-      width: 240px; // 🔧 taille du logo en mobile
-      margin-bottom: 10px;
-    }
-  }
-
   .nav-list { display: none; }
   .burger-menu { display: flex; }
-
-  .studio-carousel { height: 250px; }
-  .testimonials-grid { flex-direction: column; }
+  .main-header { padding: 10px 20px; }
 }
