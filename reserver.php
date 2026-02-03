@@ -51,16 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
   <meta charset="utf-8">
   <title>Boutique</title>
-  <link rel="stylesheet" href="./css/style.css"> <style>
-      /* Petit style rapide spécifique pour la boutique */
-      .catalogue { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
-      .card { border: 1px solid #ddd; padding: 20px; text-align: center; border-radius: 8px; width: 200px; }
-      .panier-box { background: #f9f9f9; padding: 20px; border-top: 2px solid #333; }
-      .success { color: green; font-weight: bold; }
-      .error { color: red; font-weight: bold; }
-  </style>
+  <link rel="stylesheet" href="./reserver.css"> 
 </head>
-<body>
+<body class="auth-container">
 
 <main class="auth-container" style="max-width: 800px;"> <h1>Boutique VIP</h1>
   <p>Connecté en tant que : <strong><?= htmlspecialchars($_SESSION['user']['username']) ?></strong></p>

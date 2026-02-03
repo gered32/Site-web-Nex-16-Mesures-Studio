@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/* Variables locales pour la boutique */
+/* Tout le style est isolé dans cette classe pour ne pas toucher au Login/Register */
+.boutique-page {
+  /* On écrase la largeur par défaut du auth-container juste pour cette page */
+  /* --- LE CATALOGUE (Grille) --- */
+  /* --- LE PANIER (Zone du bas) --- */
+  /* --- MESSAGES D'ERREUR ET SUCCESS --- */
+}
+.boutique-page .auth-container {
+  max-width: 900px !important; /* Plus large pour afficher les produits */
+  width: 95%;
+}
+.boutique-page .catalogue {
+  display: flex;
+  flex-wrap: wrap; /* Passe à la ligne sur mobile */
+  gap: 20px;
+  justify-content: center;
+  margin: 40px 0;
+}
+.boutique-page .catalogue .card {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Petit effet au survol */
+  /* Style spécifique pour le bouton désactivé (déjà au panier) */
+}
+.boutique-page .catalogue .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.boutique-page .catalogue .card h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+.boutique-page .catalogue .card button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+.boutique-page .panier-box {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 30px;
+  border: 1px solid rgb(233.125, 236.25, 239.375);
+  margin-top: 40px;
+  text-align: left; /* On remet le texte à gauche */
+}
+.boutique-page .panier-box h2, .boutique-page .panier-box h3 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.boutique-page .panier-box ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.boutique-page .panier-box ul li {
+  background: white;
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  /* Petite icône avant chaque article via CSS */
+}
+.boutique-page .panier-box ul li::before {
+  content: "🛍️";
+  margin-right: 15px;
+}
+.boutique-page .success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 5px solid #155724;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.boutique-page .error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 5px solid #721c24;
+  margin-bottom: 20px;
+  text-align: center;
+}/*# sourceMappingURL=reserver.css.map */

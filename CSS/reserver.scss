@@ -1,0 +1,125 @@
+/* Variables locales pour la boutique */
+$bg-color: #f8f9fa;
+$card-border: #e9ecef;
+$primary-color: #333;
+$success-bg: #d4edda;
+$success-text: #155724;
+$error-bg: #f8d7da;
+$error-text: #721c24;
+
+/* Tout le style est isolé dans cette classe pour ne pas toucher au Login/Register */
+.boutique-page {
+
+    /* On écrase la largeur par défaut du auth-container juste pour cette page */
+    .auth-container {
+        max-width: 900px !important; /* Plus large pour afficher les produits */
+        width: 95%;
+    }
+
+    /* --- LE CATALOGUE (Grille) --- */
+    .catalogue {
+        display: flex;
+        flex-wrap: wrap; /* Passe à la ligne sur mobile */
+        gap: 20px;
+        justify-content: center;
+        margin: 40px 0;
+
+        .card {
+            background: white;
+            border: 1px solid $card-border;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            /* Petit effet au survol */
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+
+            h3 {
+                margin-top: 0;
+                color: $primary-color;
+                font-size: 1.2rem;
+            }
+
+            /* Style spécifique pour le bouton désactivé (déjà au panier) */
+            button:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+                opacity: 0.7;
+                border: none;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                width: 100%;
+            }
+        }
+    }
+
+    /* --- LE PANIER (Zone du bas) --- */
+    .panier-box {
+        background: $bg-color;
+        border-radius: 10px;
+        padding: 30px;
+        border: 1px solid darken($bg-color, 5%);
+        margin-top: 40px;
+        text-align: left; /* On remet le texte à gauche */
+
+        h2, h3 {
+            border-bottom: 2px solid $primary-color;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+
+            li {
+                background: white;
+                padding: 15px;
+                margin-bottom: 8px;
+                border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+
+                /* Petite icône avant chaque article via CSS */
+                &::before {
+                    content: "🛍️";
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    /* --- MESSAGES D'ERREUR ET SUCCESS --- */
+    .success {
+        background-color: $success-bg;
+        color: $success-text;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 5px solid $success-text;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .error {
+        background-color: $error-bg;
+        color: $error-text;
+        padding: 15px;
+        border-radius: 6px;
+        border-left: 5px solid $error-text;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
