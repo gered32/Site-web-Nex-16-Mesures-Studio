@@ -145,7 +145,7 @@
             <li>Livraison propre & organisée</li>
           </ul>
           <div class="card-footer">
-            <span class="price">à partir de 140€</span>
+            <span class="price">à partir de 120€</span>
             <a class="btn-primary" href="contact.php">Demander un devis</a>
           </div>
         </article>
