@@ -1,106 +1,133 @@
 <?php
-session_start();
+require_once "config.php"; // On charge vos outils (load_users, session, etc.)
 
-// 1. Configuration (Simule une base de données et un utilisateur)
-$produits = [
-    1 => ["nom" => "PC Gamer", "prix" => 1200, "image" => "💻"],
-    2 => ["nom" => "Console Next-Gen", "prix" => 500, "image" => "🎮"],
-    3 => ["nom" => "Casque VR", "prix" => 350, "image" => "🥽"]
-];
+// 1. PROTECTION : Si pas connecté, on renvoie au login
+if (!is_logged_in()) {
+    header("Location: login.php?error=login_required");
+    exit;
+}
 
-$mot_de_passe_compte = "1234"; // Le mot de passe pour valider l'achat
-$message = "";
-
-// Initialisation du panier s'il n'existe pas
+// Initialisation du panier
 if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
-// 2. Traitement des actions
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    // Action : Ajouter au panier
-    if (isset($_POST['ajouter_id'])) {
-        $id = $_POST['ajouter_id'];
-        // On vérifie si le produit n'est pas déjà dans le panier (Règle : 1 exemplaire max)
-        if (!in_array($id, $_SESSION['panier'])) {
-            $_SESSION['panier'][] = $id;
+$message = "";
+
+// 2. TRAITEMENT DU FORMULAIRE
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // --- A. AJOUTER AU PANIER ---
+    if (isset($_POST['article'])) {
+        $article = $_POST['article'];
+        // Règle : 1 seul exemplaire de chaque
+        if (!in_array($article, $_SESSION['panier'])) {
+            $_SESSION['panier'][] = $article;
         }
     }
 
-    // Action : Valider l'achat
-    if (isset($_POST['valider_achat'])) {
-        $mdp_saisi = $_POST['password'];
-        if ($mdp_saisi === $mot_de_passe_compte) {
-            $message = "<div class='success'>✅ Achat confirmé ! Merci pour votre commande.</div>";
-            $_SESSION['panier'] = []; // Vide le panier
+    // --- B. VALIDER L'ACHAT (Vérification du MDP JSON) ---
+    if (isset($_POST['confirmer_achat'])) {
+        $mdp_saisi = $_POST['password_verif'];
+        $email_actuel = $_SESSION['user']['email']; // L'email de la session en cours
+
+        // On charge les utilisateurs depuis le JSON via vos fonctions existantes
+        $users = load_users(); 
+        $user_info = find_user_by_email($email_actuel, $users);
+
+        // On vérifie le mot de passe avec le hash du JSON
+        if ($user_info && password_verify($mdp_saisi, $user_info['password_hash'])) {
+            $message = "<div class='success'>✅ Paiement accepté ! Merci " . htmlspecialchars($user_info['username']) . ".</div>";
+            $_SESSION['panier'] = []; // On vide le panier
         } else {
-            $message = "<div class='error'>❌ Mot de passe incorrect. Réessayez.</div>";
+            $message = "<div class='error'>❌ Mot de passe incorrect.</div>";
         }
     }
 }
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mini Boutique</title>
-    <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f4f4; }
-        .catalogue { display: flex; gap: 20px; justify-content: space-around; }
-        .card { background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 30%; }
-        .card button { background: #007bff; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 4px; }
-        .card button:disabled { background: #ccc; cursor: not-allowed; }
-        .panier-section { background: #fff; margin-top: 30px; padding: 20px; border-radius: 8px; border-top: 4px solid #28a745; }
-        .success { background: #d4edda; color: #155724; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
-        .error { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
-        .icon { font-size: 3em; display: block; margin-bottom: 10px; }
-    </style>
+  <meta charset="utf-8">
+  <title>Boutique</title>
+  <link rel="stylesheet" href="./css/style.css"> <style>
+      /* Petit style rapide spécifique pour la boutique */
+      .catalogue { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+      .card { border: 1px solid #ddd; padding: 20px; text-align: center; border-radius: 8px; width: 200px; }
+      .panier-box { background: #f9f9f9; padding: 20px; border-top: 2px solid #333; }
+      .success { color: green; font-weight: bold; }
+      .error { color: red; font-weight: bold; }
+  </style>
 </head>
 <body>
 
-    <h1>Mon Mini Catalogue</h1>
-    
-    <?= $message ?>
+<main class="auth-container" style="max-width: 800px;"> <h1>Boutique VIP</h1>
+  <p>Connecté en tant que : <strong><?= htmlspecialchars($_SESSION['user']['username']) ?></strong></p>
+  
+  <?= $message ?>
 
-    <div class="catalogue">
-        <?php foreach ($produits as $id => $prod): ?>
-            <div class="card">
-                <span class="icon"><?= $prod['image'] ?></span>
-                <h3><?= $prod['nom'] ?></h3>
-                <p><?= $prod['prix'] ?> €</p>
-                
-                <form method="POST">
-                    <input type="hidden" name="ajouter_id" value="<?= $id ?>">
-                    <?php if (in_array($id, $_SESSION['panier'])): ?>
-                        <button type="button" disabled>Déjà dans le panier</button>
-                    <?php else: ?>
-                        <button type="submit">Ajouter au panier</button>
-                    <?php endif; ?>
-                </form>
-            </div>
-        <?php endforeach; ?>
-    </div>
+  <div class="catalogue">
+      <div class="card">
+          <h3>PC Gamer</h3>
+          <form method="post">
+              <input type="hidden" name="article" value="PC Gamer">
+              <?php if(in_array("PC Gamer", $_SESSION['panier'])): ?>
+                  <button disabled>Déjà ajouté</button>
+              <?php else: ?>
+                  <button type="submit" class="btn-homepage">Acheter</button>
+              <?php endif; ?>
+          </form>
+      </div>
 
-    <?php if (!empty($_SESSION['panier'])): ?>
-        <div class="panier-section">
-            <h2>Votre Panier</h2>
-            <ul>
-                <?php foreach ($_SESSION['panier'] as $id): ?>
-                    <li><?= $produits[$id]['nom'] ?> - <?= $produits[$id]['prix'] ?> €</li>
-                <?php endforeach; ?>
-            </ul>
-            
-            <hr>
-            <h3>Confirmer l'achat (Gratuit)</h3>
-            <p>Veuillez entrer votre mot de passe pour valider (Indice: 1234)</p>
-            <form method="POST">
-                <input type="password" name="password" placeholder="Mot de passe du compte" required>
-                <button type="submit" name="valider_achat" style="background: #28a745; color: white; border: none; padding: 10px 20px; cursor: pointer;">Payer</button>
-            </form>
-        </div>
-    <?php endif; ?>
+      <div class="card">
+          <h3>Console</h3>
+          <form method="post">
+              <input type="hidden" name="article" value="Console">
+              <?php if(in_array("Console", $_SESSION['panier'])): ?>
+                  <button disabled>Déjà ajouté</button>
+              <?php else: ?>
+                  <button type="submit" class="btn-homepage">Acheter</button>
+              <?php endif; ?>
+          </form>
+      </div>
+
+      <div class="card">
+          <h3>Casque VR</h3>
+          <form method="post">
+              <input type="hidden" name="article" value="Casque VR">
+              <?php if(in_array("Casque VR", $_SESSION['panier'])): ?>
+                  <button disabled>Déjà ajouté</button>
+              <?php else: ?>
+                  <button type="submit" class="btn-homepage">Acheter</button>
+              <?php endif; ?>
+          </form>
+      </div>
+  </div>
+
+  <?php if (!empty($_SESSION['panier'])): ?>
+      <div class="panier-box">
+          <h2>Votre Panier</h2>
+          <ul>
+              <?php foreach ($_SESSION['panier'] as $prod): ?>
+                  <li><?= $prod ?></li>
+              <?php endforeach; ?>
+          </ul>
+
+          <hr>
+          <h3>Confirmer l'achat</h3>
+          <p>Pour sécurité, retapez le mot de passe de votre compte :</p>
+          
+          <form method="post" class="auth-form">
+              <input type="password" name="password_verif" placeholder="Votre mot de passe actuel" required>
+              <button type="submit" name="confirmer_achat" class="btn-homepage">Valider et Payer</button>
+          </form>
+      </div>
+  <?php endif; ?>
+
+  <br>
+  <a class="link" href="logout.php">Se déconnecter</a>
+</main>
 
 </body>
 </html>
