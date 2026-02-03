@@ -1,0 +1,105 @@
+.page-contact {
+  padding: 40px 20px 60px;
+}
+
+.contact-head {
+  margin-bottom: 30px;
+}
+
+.contact-head h1 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.contact-head p {
+  max-width: 70ch;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* FORMULAIRE */
+.contact-form {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-family: inherit;
+}
+
+.contact-form button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.note {
+  font-size: 14px;
+  color: #555;
+}
+
+/* INFOS */
+.contact-infos {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.contact-infos h2 {
+  margin-bottom: 12px;
+}
+
+.contact-infos ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.contact-infos li {
+  margin-bottom: 8px;
+}
+
+.socials {
+  margin-bottom: 16px;
+}
+
+.socials a {
+  display: block;
+  text-decoration: none;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=16contact.css.map */

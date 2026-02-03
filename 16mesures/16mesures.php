@@ -25,7 +25,7 @@
             <ul class="nav-list">
                 <li><a href="../index.html">Accueil</a></li>
                 <li><a href="prestation.php">Prestations</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="16contact.php">Contact</a></li>
             </ul>
         </nav>
 
