@@ -24,7 +24,7 @@
             </div>
             <ul class="nav-list">
                 <li><a href="../../index.html">Accueil</a></li>
-                <li><a href="catalogue.php">Produits</a></li>
+                <li><a href="../reserver.php">Réserver</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
         </nav>
@@ -50,21 +50,21 @@
         </section>
 
         <section class="studio-description container">
-            <h2>Le Studio d'Enregistrement</h2>
-            <p>Situé à Chambéry, le studio 16 Mesures Records est un espace dédié à la création sonore et musicale. Nous disposons d'une cabine traitée acoustiquement pour des prises de voix cristallines et des instruments percutants.</p>
-            <p>Que vous soyez un artiste émergent ou confirmé, notre structure vous offre les outils nécessaires pour transformer vos idées en morceaux professionnels. Nous mettons un point d'honneur à créer une atmosphère de travail détendue et productive.</p>
-            <p>Notre équipement de pointe allie le grain de l'analogique à la souplesse du numérique pour répondre à toutes les exigences techniques actuelles.</p>
+            <h2>Le Studio Réparation-Location</h2>
+            <p>Situé à Chambéry, le studio NEX est un espace dédié à la réparation d'objet éléctronique et également un endroit de location de matériel. </p>
+            <p>La promesse numéro une de NEX est de rendre accessible à tous son côté hybride.</p>
+            <p>Notre équipement à la pointe garantie la meilleur sensation du marché.</p>
         </section>
 
         <section class="testimonials container">
             <h2>Ressentis Clients</h2>
             <div class="testimonials-grid">
                 <div class="card">
-                    <p>"Une qualité de son incroyable et une équipe vraiment à l'écoute de mon projet."</p>
-                    <span>- Kylian Provot.</span>
+                    <p>"Une qualité incroyable et une équipe vraiment à l'écoute."</p>
+                    <span>- Niels Deliens.</span>
                 </div>
                 <div class="card">
-                    <p>"Le meilleur studio de Chambéry pour le mixage de voix. Je recommande à 100%."</p>
+                    <p>"Le meilleur local de location de la région !"</p>
                     <span>- Alexandre Lemalicieux.</span>
                 </div>
                 <div class="card">
