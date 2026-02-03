@@ -28,5 +28,11 @@
         "email": "a@a.com",
         "password_hash": "$2y$10$ARPw7mEg8\/AJZEx2Q999fedxWv1RW7YfPrscs2l3dlWxgTN8EtNYi",
         "created_at": "2026-02-03T08:37:25+01:00"
+    },
+    {
+        "username": "gered32",
+        "email": "gered32@gmail.com",
+        "password_hash": "$2y$10$PI5UBfAMIDm7w.EUx\/\/IlOFMZPdCgp7F64\/zVQZcFAdeHMn8m2lXe",
+        "created_at": "2026-02-03T09:27:09+01:00"
     }
 ]

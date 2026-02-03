@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>16 Mesures Records - Studio d'enregistrement</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../../img/16mesures_logo.png">
-    <link rel="stylesheet" href="../css/16mesures.css">
+    <link rel="stylesheet" href="../css/16_nex.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="logo-container">
             <a href="../index.html" title="Retour à l'accueil">
-                <img class="logo-float" alt="Logo 16 Mesures Records" src="../img/16mesures_logo.png"/> 
+                <img class="logo-float" alt="Logo 16 Mesures Records" src="../img/16mesures_logo.png" /> 
             </a>
         </div>
 

@@ -39,12 +39,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 8px 32px;
   background: #f4f4f4;
 }
 .main-header .logo-float {
-  height: 60px;
-  float: left;
+  width: 200px;
+  height: auto;
 }
 .main-header .title-container h1 {
   text-align: center;
@@ -177,7 +177,7 @@ body {
     text-align: center;
   }
   .main-header .logo-float {
-    float: none;
+    width: 240px;
     margin-bottom: 10px;
   }
   .nav-list {
