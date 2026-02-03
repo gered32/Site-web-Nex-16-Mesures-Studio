@@ -23,20 +23,19 @@
                 <span></span>
             </div>
             <ul class="nav-list">
-                <li><a href="../../index.html">Accueil</a></li>
                 <li><a href="../reserver.php">Réserver</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
         </nav>
 
-        <a href="../../authentification.php" class="nav-account" aria-label="Compte">
-            <img src="../../img/profilutilisateuranon.png" alt="Compte utilisateur" />
+        <a href="../authentification.php" class="nav-account" aria-label="Compte">
+            <img src="../img/profilutilisateuranon.png" alt="Compte utilisateur" />
         </a>
     </header>
 
     <div class="breadcrumb">
         <div class="container">
-            <a href="../../index.html">Accueil</a> > <span>NEX</span>
+            <a href="./../index.html">Accueil</a> > <span>NEX</span>
         </div>
     </div>
 

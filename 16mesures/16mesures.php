@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>16 Mesures Records - Studio d'enregistrement</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../../img/16mesures_logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/16mesures_logo.png">
+
     <link rel="stylesheet" href="../css/16_nex.css">
 </head>
 <body>
@@ -23,7 +24,6 @@
                 <span></span>
             </div>
             <ul class="nav-list">
-                <li><a href="../index.html">Accueil</a></li>
                 <li><a href="prestation.php">Prestations</a></li>
                 <li><a href="16contact.php">Contact</a></li>
             </ul>
