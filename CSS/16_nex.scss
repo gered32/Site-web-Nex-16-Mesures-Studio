@@ -106,15 +106,19 @@ body {
 
 .card {
   flex: 0 0 200px;
-  height: 100px;
-  margin: 10px;
+  height: 150px;
+  margin: 5px;
   background: #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
   border-radius: 8px;
+  
 }
+
+
+
 
 @keyframes spin {
   from { transform: translateX(0); }

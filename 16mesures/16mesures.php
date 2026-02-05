@@ -40,13 +40,25 @@
         </div>
     </div>
 
-    <main>
-        <section class="studio-carousel">
-            <div class="carousel-container">
-                <img src="img/studio-1.jpg" alt="Cabine d'enregistrement">
-                <img src="img/studio-2.jpg" alt="Console de mixage">
-                <img src="img/studio-3.jpg" alt="Espace détente">
-            </div>
+         <div class="carousel">
+            <div class="group">
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex3.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex4.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
+        </div>
+
+        <div aria-hidden class="group">
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex3.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex4.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
+        </div>
+    </div>
         </section>
 
         <section class="studio-description container">

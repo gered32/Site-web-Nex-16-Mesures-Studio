@@ -51,21 +51,21 @@
 
         <div class="carousel">
             <div class="group">
-                <div class="card">1</div>
-                <div class="card">2</div>
-                <div class="card">3</div>
-                <div class="card">4</div>
-                <div class="card">5</div>
-                <div class="card">6</div>
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex3.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex4.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
         </div>
 
         <div aria-hidden class="group">
-                <div class="card">1</div>
-                <div class="card">2</div>
-                <div class="card">3</div>
-                <div class="card">4</div>
-                <div class="card">5</div>
-                <div class="card">6</div>
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex3.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex4.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex1.jpg" alt="Logo NEX" />             </div>
+                <div class="card"> <img src="../img/nex2.jpg" alt="Logo NEX" />             </div>
         </div>
     </div>
 
