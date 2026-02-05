@@ -11,6 +11,25 @@ body {
 }
 
 
+
+.video {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;  
+    width: 250px; /* IMPORTANT : Donne une taille à ta vidéo */
+    height: auto;
+    z-index: 9999; /* Augmenté pour être sûr de passer devant tout */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Ombre plus forte */
+    border-radius: 12px; /* Pour arrondir les bords de la vidéo */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Petit contour pour le style */
+}
+
+
+
+
+
+
+
 /* 2) HEADER                   */
 
 .top {
